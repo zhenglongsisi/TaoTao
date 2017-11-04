@@ -1,1 +1,1 @@
-## upload static files
+## upload files
