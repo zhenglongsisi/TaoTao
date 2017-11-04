@@ -24,6 +24,7 @@
     <!-- 配置资源映射 -->
     <mvc:resources location="/css/" mapping="/css/**"/>
     <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources mapping="/static/**" location="/upload/"/>
 
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -39,12 +40,13 @@
         <property name="defaultEncoding" value="UTF-8"/>
         <!-- 设定文件上传的最大值5MB，5*1024*1024 -->
         <property name="maxUploadSize" value="5242880"/>
+        <property name="uploadTempDir" value="upload/"/>
     </bean>
 
     <!-- 引用dubbo服务 -->
     <dubbo:application name="taotao-manager-web"/>
     <dubbo:registry protocol="zookeeper" address="192.168.22.128:2181"/>
-    <dubbo:reference interface="com.taotao.service.ItemService" id="itemService" />
-    <dubbo:reference interface="com.taotao.service.ItemCatService" id="itemCatServiceImpl" />
+    <dubbo:reference interface="com.taotao.service.ItemService" id="itemService"/>
+    <dubbo:reference interface="com.taotao.service.ItemCatService" id="itemCatServiceImpl"/>
 
 </beans>
