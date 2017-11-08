@@ -24,6 +24,7 @@ public class ItemCatServiceImpl implements ItemCatService {
         this.itemCatMapper = itemCatMapper;
     }
 
+    @SuppressWarnings("Duplicates")
     @Override
     public List<EasyUITreeNode> getItemCatList(long parentId) {
         //根据父节点查询子节点列表
